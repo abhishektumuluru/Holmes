@@ -1,9 +1,0 @@
-#Bash file that runs the main.py file on a captured image and returns the analysis
-
-while true
-do
-	rm -rf image.jpeg
-	ffmpeg -f video4linux2 -i /dev/video0 -vframes 1 image.jpeg 2> /dev/null
-	python3 /home/root/vandy/Holmes/main.py
-	clear
-done
