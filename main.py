@@ -8,20 +8,20 @@ from ISStreamer.Streamer import Streamer
 import subprocess
 from datetime import datetime
 
-imgurId = "71d7de68d35561e"
-imgurSec = "ad08635e559a3d4faee8347900733df066af3177"
+imgurId = ""
+imgurSec = ""
 
 headers = {
     # Request headers
     'Content-Type': 'application/octet-stream',
-    'Ocp-Apim-Subscription-Key': '8431e00bcfdb4754971235abc0859926',
+    'Ocp-Apim-Subscription-Key': '',
 }
 
 jsonHeaders = {
     'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '8431e00bcfdb4754971235abc0859926',
+    'Ocp-Apim-Subscription-Key': '',
 }
-apiKey = "7995cf1030a94257be203bb54a37bc80";
+apiKey = "";
 voiceHeader = {"Ocp-Apim-Subscription-Key": apiKey}
 
 params = urllib.parse.urlencode({
@@ -62,7 +62,7 @@ def identify(image):
 
     #Line added to push to Initial State
     streamer = Streamer(bucket_name="TRAKR", bucket_key="VandyHacks",
-                        access_key="02JRVjhxxM9eIwKrvXN44TWnzUotO0aZ")
+                        access_key="")
     try:
         conn = http.client.HTTPSConnection('api.projectoxford.ai')
         conn.request("POST", "/face/v1.0/identify?", body, jsonHeaders)
@@ -183,8 +183,8 @@ def train():
 
 
 def alert(to_number, from_number, message_body="", image=""):
-    ACCOUNT_SID = "ACcb656f9127d64d67c1e80d86e9ecf469"
-    AUTH_TOKEN = "f6a54d5ef3e27458f91b2e9dcd8ddac5"
+    ACCOUNT_SID = ""
+    AUTH_TOKEN = ""
     client = TwilioRestClient(ACCOUNT_SID, AUTH_TOKEN)
     client.messages.create(
         to=to_number,
@@ -232,8 +232,8 @@ def welcome(arrNames):
     header = {"Content-type": "audio/wav; samplerate = 8000",
                "X-Microsoft-OutputFormat": "riff-8khz-8bit-mono-mulaw",
                "Authorization": "Bearer " + accesstoken,
-               "X-Search-AppId": "07D3234E49CE426DAA29772419F436CA",
-               "X-Search-ClientID": "1ECFAE91408841A480F00935DC390960",
+               "X-Search-AppId": "",
+               "X-Search-ClientID": "",
                "User-Agent": "TTSForPython"}
 
     # Connect to server to synthesize the wave
@@ -252,7 +252,7 @@ def welcome(arrNames):
 
 # def pushToInitialState(data):
 #     streamer = Streamer(bucket_name="TRAKR", bucket_key="VandyHacks",
-#                         access_key="AmGWapG1yu5XWZmVxudVeJGXcTRFOIuy")
+#                         access_key="")
 #     if (data == {}):
 #         streamer.log("Name:", "Unknown")
 #         streamer.log("Status:", "Inside")
